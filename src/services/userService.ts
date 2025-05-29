@@ -2,7 +2,7 @@ import axiosInstance from "./axiosConfig";
 import { USER_ENDPOINTS } from "../utils/constants";
 
 export interface User {
-  id?: string;
+  _id?: string;
   name: string;
   email: string;
   password: string;
@@ -37,7 +37,7 @@ export const userService = {
   },
 
   // Create new user
-  createUser: async (userData: Omit<User, "id">): Promise<User> => {
+  createUser: async (userData: Omit<User, "_id">): Promise<User> => {
     try {
       const response = await axiosInstance.post(
         USER_ENDPOINTS.CREATE,

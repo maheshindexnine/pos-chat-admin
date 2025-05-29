@@ -7,4 +7,17 @@ export const USER_ENDPOINTS = {
   CREATE: '/users',
   UPDATE: '/users',
   DELETE: '/users'
+};
+
+export const GROUP_ENDPOINTS = {
+  BASE: '/groups',
+  GET_ALL: '/groups',
+  CREATE: '/groups',
+  ADD_MEMBER: (groupId: string, userId: string) => `/groups/${groupId}/members/${userId}`,
+  REMOVE_MEMBER: (groupId: string, userId: string) => `/groups/${groupId}/members/${userId}`
+};
+
+export const AUTH_ENDPOINTS = {
+  REGISTER: '/organizations',
+  LOGIN: '/users/admin/login'
 }; 

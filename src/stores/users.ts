@@ -55,7 +55,6 @@ export const useUserStore = defineStore("users", {
           name: userData.name,
           email: userData.email,
           type: userData.type,
-          organizationId: "6836d2f418273851104c440a",
           password: userData.password,
         };
 
