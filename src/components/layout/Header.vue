@@ -173,7 +173,7 @@ onUnmounted(() => {
         <div class="relative">
           <button
             @click="toggleProfileMenu"
-            class="flex items-center space-x-2 p-1 rounded-full hover:bg-gray-100 focus:outline-none"
+            class="flex items-center space-x-2 p-1 rounded-full bg-gray-100 focus:outline-none"
           >
             <div
               class="h-8 w-8 rounded-full bg-primary-500 flex items-center justify-center text-white"
@@ -211,12 +211,12 @@ onUnmounted(() => {
             >
               Your Profile
             </router-link>
-            <a
+            <!-- <a
               href="#"
               class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
             >
               Settings
-            </a>
+            </a> -->
             <div class="border-t border-gray-100 my-1"></div>
             <button
               @click="logout"

@@ -279,7 +279,7 @@ onMounted(async () => {
             <!-- Organization information -->
             <div>
               <label class="form-label">Organization</label>
-              <p class="text-gray-700 font-medium">{{ authStore.organization?.name || 'N/A' }}</p>
+              <p class="text-gray-700 font-medium">{{ authStore.organization || 'N/A' }}</p>
             </div>
             
             <!-- Save button (only visible in edit mode) -->

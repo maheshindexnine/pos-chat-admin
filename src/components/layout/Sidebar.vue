@@ -65,15 +65,15 @@ const logout = () => {
     >
       <div class="flex items-center">
         <img
-          src="https://via.placeholder.com/40/FFCC00/000000?text=A"
+          src="/images/brand_logo.png"
           alt="Logo"
-          class="h-8 w-8 rounded"
+          class="h-8 w-8 rounded-full"
         />
         <span
           v-if="isOpen"
           class="ml-2 text-xl font-semibold text-primary-600 transition-opacity duration-200"
         >
-          Admin Panel
+          Chat Plug
         </span>
       </div>
       <button
@@ -108,8 +108,8 @@ const logout = () => {
     <!-- Organization info -->
     <div v-if="isOpen" class="px-4 py-3 border-b border-gray-200">
       <p class="text-xs text-gray-500 mb-1">ORGANIZATION</p>
-      <p class="font-medium text-gray-800 truncate">
-        {{ organization?.name || "N/A" }}
+      <p class="font-semibold text-gray-800 truncate">
+        {{ organization || "N/A" }}
       </p>
     </div>
 

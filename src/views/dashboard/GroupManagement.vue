@@ -320,7 +320,7 @@ onMounted(async () => {
         <div
           v-for="group in filteredGroups"
           :key="group._id"
-          class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-200"
+          class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden hover:bg-purple-100 hover:shadow-md transition-shadow duration-200"
           v-motion
           :initial="{ opacity: 0, scale: 0.95 }"
           :enter="{ opacity: 1, scale: 1, transition: { duration: 400 } }"

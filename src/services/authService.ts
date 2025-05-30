@@ -19,6 +19,8 @@ export interface LoginData {
 export interface AuthResponse {
   token: string;
   name: string;
+  organization: string;
+  email: string;
 }
 
 export const authService = {
@@ -26,12 +28,12 @@ export const authService = {
   register: async (data: RegisterData): Promise<AuthResponse> => {
     try {
       const response = await axiosInstance.post(AUTH_ENDPOINTS.REGISTER, data);
-      const { token, name } = response.data;
+      const { token, name, organization, email } = response.data;
 
       // Store token in localStorage
       localStorage.setItem("token", token);
 
-      return { token, name };
+      return { token, name, organization, email };
     } catch (error) {
       throw error;
     }
@@ -41,12 +43,12 @@ export const authService = {
   login: async (data: LoginData): Promise<AuthResponse> => {
     try {
       const response = await axiosInstance.post(AUTH_ENDPOINTS.LOGIN, data);
-      const { token, name } = response.data;
+      const { token, name, organization, email } = response.data;
 
       // Store token in localStorage
       localStorage.setItem("token", token);
 
-      return { token, name };
+      return { token, name, organization, email };
     } catch (error) {
       throw error;
     }

@@ -8,7 +8,8 @@ interface LoginCredentials {
 
 export const useAuthStore = defineStore("auth", {
   state: () => ({
-    user: null as { name: string } | null,
+    user: null as { name: string; email: string } | null,
+    organization: null as string | null,
     token: null as string | null,
     loading: false,
     error: null as string | null,
@@ -17,6 +18,7 @@ export const useAuthStore = defineStore("auth", {
   getters: {
     isAuthenticated: (state) => !!state.token && !!state.user,
     userData: (state) => state.user,
+    getOrganization: (state) => state.organization,
   },
 
   actions: {
@@ -27,9 +29,9 @@ export const useAuthStore = defineStore("auth", {
       try {
         const response = await authService.login(credentials);
 
-        this.user = { name: response.name };
+        this.user = { name: response.name, email: response.email };
         this.token = response.token;
-
+        this.organization = response.organization;
         router.push("/dashboard");
       } catch (error: any) {
         this.error = error.message || "Failed to login";
@@ -57,13 +59,13 @@ export const useAuthStore = defineStore("auth", {
     logout() {
       this.user = null;
       this.token = null;
-      localStorage.clear()
+      localStorage.clear();
       router.push("/login");
     },
   },
 
   persist: {
     storage: localStorage,
-    paths: ["user", "token"],
+    paths: ["user", "token", "organization"],
   },
 });
