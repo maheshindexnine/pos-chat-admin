@@ -77,7 +77,7 @@ const modalWidth = calculateModalWidth();
           <div
             ref="modalRef"
             :class="[
-              'relative bg-white rounded-lg shadow-xl transform transition-all w-full',
+              'relative bg-purple-200 rounded-lg shadow-xl transform transition-all w-full',
               modalWidth,
             ]"
             v-motion

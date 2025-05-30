@@ -44,12 +44,12 @@ const goToRegister = () => {
 
 <template>
   <div
-    class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8"
+    class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 via-purple-200 to-yellow-200 py-20 px-8 sm:px-12 lg:px-16"
     v-motion
     :initial="{ opacity: 0, y: 20 }"
     :enter="{ opacity: 1, y: 0, transition: { duration: 500 } }"
   >
-    <div class="max-w-md w-full space-y-8">
+    <div class="max-w-md w-full space-y-8 bg-white p-12 rounded-2xl shadow-xl">
       <div class="text-center">
         <img
           class="mx-auto h-12 w-auto rounded-2xl"
@@ -70,7 +70,7 @@ const goToRegister = () => {
         </p>
       </div>
 
-      <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+      <div>
         <form class="space-y-6" @submit.prevent="handleLogin">
           <div
             v-if="error"

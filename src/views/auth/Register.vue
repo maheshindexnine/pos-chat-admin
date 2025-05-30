@@ -13,7 +13,7 @@ const registerForm = reactive({
   confirmPassword: "",
   organizationName: "",
   description: "",
-  age: 0,
+  age: 25,
   phone: 0,
 });
 
@@ -69,19 +69,19 @@ const goToLogin = () => {
 
 <template>
   <div
-    class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8"
+    class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-100 via-purple-200 to-yellow-200"
     v-motion
     :initial="{ opacity: 0, y: 20 }"
     :enter="{ opacity: 1, y: 0, transition: { duration: 500 } }"
   >
-    <div class="max-w-md w-full space-y-8">
+    <div class="max-w-xl w-full space-y-8 bg-white p-12 rounded-2xl shadow-xl">
       <div class="text-center">
         <img
           class="mx-auto h-12 w-auto"
           src="/images/brand_name-bg.png"
           alt="Logo"
         />
-        <h2 class="mt-6 text-3xl font-extrabold text-gray-900">
+        <h2 class="mt-3 text-3xl font-extrabold text-gray-900">
           Create new organization
         </h2>
         <p class="mt-2 text-sm text-gray-600">
@@ -95,7 +95,7 @@ const goToLogin = () => {
         </p>
       </div>
 
-      <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+      <div class="">
         <form class="space-y-6" @submit.prevent="handleRegister">
           <div
             v-if="error"
@@ -104,27 +104,130 @@ const goToLogin = () => {
             {{ error }}
           </div>
 
-          <div>
-            <label
-              for="organization"
-              class="block text-sm font-medium text-gray-700"
-            >
-              Organization Name
-            </label>
-            <div class="mt-1">
-              <input
-                id="organization"
-                v-model="registerForm.organizationName"
-                name="organization"
-                type="text"
-                required
-                class="form-control"
-                :disabled="isLoading"
-              />
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label
+                for="organization"
+                class="block text-sm font-medium text-gray-700"
+              >
+                Organization Name
+              </label>
+              <div class="mt-1">
+                <input
+                  id="organization"
+                  v-model="registerForm.organizationName"
+                  name="organization"
+                  type="text"
+                  required
+                  class="form-control"
+                  :disabled="isLoading"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700">
+                Your Name
+              </label>
+              <div class="mt-1">
+                <input
+                  id="name"
+                  v-model="registerForm.name"
+                  name="name"
+                  type="text"
+                  required
+                  class="form-control"
+                  :disabled="isLoading"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label
+                for="email"
+                class="block text-sm font-medium text-gray-700"
+              >
+                Email Address
+              </label>
+              <div class="mt-1">
+                <input
+                  id="email"
+                  v-model="registerForm.email"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  required
+                  class="form-control"
+                  :disabled="isLoading"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label
+                for="phone"
+                class="block text-sm font-medium text-gray-700"
+              >
+                Phone Number
+              </label>
+              <div class="mt-1">
+                <input
+                  id="phone"
+                  v-model="registerForm.phone"
+                  name="phone"
+                  type="number"
+                  autocomplete="phone"
+                  required
+                  class="form-control"
+                  :disabled="isLoading"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label
+                for="password"
+                class="block text-sm font-medium text-gray-700"
+              >
+                Password
+              </label>
+              <div class="mt-1">
+                <input
+                  id="password"
+                  v-model="registerForm.password"
+                  name="password"
+                  type="password"
+                  autocomplete="new-password"
+                  required
+                  class="form-control"
+                  :disabled="isLoading"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label
+                for="confirm-password"
+                class="block text-sm font-medium text-gray-700"
+              >
+                Confirm Password
+              </label>
+              <div class="mt-1">
+                <input
+                  id="confirm-password"
+                  v-model="registerForm.confirmPassword"
+                  name="confirm-password"
+                  type="password"
+                  autocomplete="new-password"
+                  required
+                  class="form-control"
+                  :disabled="isLoading"
+                />
+              </div>
             </div>
           </div>
 
-          <div>
+          <div class="col-span-1 md:col-span-2">
             <label
               for="organization"
               class="block text-sm font-medium text-gray-700"
@@ -144,120 +247,7 @@ const goToLogin = () => {
             </div>
           </div>
 
-          <div>
-            <label for="name" class="block text-sm font-medium text-gray-700">
-              Your Name
-            </label>
-            <div class="mt-1">
-              <input
-                id="name"
-                v-model="registerForm.name"
-                name="name"
-                type="text"
-                required
-                class="form-control"
-                :disabled="isLoading"
-              />
-            </div>
-          </div>
-
-          <div>
-            <label for="email" class="block text-sm font-medium text-gray-700">
-              Email Address
-            </label>
-            <div class="mt-1">
-              <input
-                id="email"
-                v-model="registerForm.email"
-                name="email"
-                type="email"
-                autocomplete="email"
-                required
-                class="form-control"
-                :disabled="isLoading"
-              />
-            </div>
-          </div>
-
-          <div>
-            <label for="phone" class="block text-sm font-medium text-gray-700">
-              Phone Number
-            </label>
-            <div class="mt-1">
-              <input
-                id="phone"
-                v-model="registerForm.phone"
-                name="phone"
-                type="number"
-                autocomplete="phone"
-                required
-                class="form-control"
-                :disabled="isLoading"
-              />
-            </div>
-          </div>
-
-          <div>
-            <label for="age" class="block text-sm font-medium text-gray-700">
-              Age
-            </label>
-            <div class="mt-1">
-              <input
-                id="age"
-                v-model="registerForm.age"
-                name="age"
-                type="number"
-                autocomplete="age"
-                required
-                class="form-control"
-                :disabled="isLoading"
-              />
-            </div>
-          </div>
-
-          <div>
-            <label
-              for="password"
-              class="block text-sm font-medium text-gray-700"
-            >
-              Password
-            </label>
-            <div class="mt-1">
-              <input
-                id="password"
-                v-model="registerForm.password"
-                name="password"
-                type="password"
-                autocomplete="new-password"
-                required
-                class="form-control"
-                :disabled="isLoading"
-              />
-            </div>
-          </div>
-
-          <div>
-            <label
-              for="confirm-password"
-              class="block text-sm font-medium text-gray-700"
-            >
-              Confirm Password
-            </label>
-            <div class="mt-1">
-              <input
-                id="confirm-password"
-                v-model="registerForm.confirmPassword"
-                name="confirm-password"
-                type="password"
-                autocomplete="new-password"
-                required
-                class="form-control"
-                :disabled="isLoading"
-              />
-            </div>
-          </div>
-
-          <div>
+          <div class="col-span-1 md:col-span-2">
             <button
               type="submit"
               :disabled="isLoading"
